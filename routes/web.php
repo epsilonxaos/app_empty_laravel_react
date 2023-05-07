@@ -40,6 +40,13 @@ Route::middleware('guest') -> prefix('/admin') -> group(function() {
 Route::middleware(['auth:admin', 'verified']) -> prefix('/admin') -> group(function() {
     Route::post('/logout', [AdminController::class, 'logout']) -> name('panel.logout');
     Route::get('/dashboard', [AdminController::class, 'dashboardAdmin']) -> name('panel.dashboard');
+
+
+    Route::prefix('/usuarios') -> group(function() {
+        Route::get('/', [AdminController::class, 'index']) -> name('panel.usuarios.index');
+        Route::get('/create', [AdminController::class, 'create']) -> name('panel.usuarios.create');
+        Route::post('/store', [AdminController::class, 'store']) -> name('panel.usuarios.store');
+    });
 });
 
 require __DIR__.'/auth.php';

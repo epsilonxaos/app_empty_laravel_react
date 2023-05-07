@@ -8,6 +8,7 @@ module.exports = {
         './storage/framework/views/*.php',
         "./resources/**/*.blade.php",
         "./resources/**/*.{js,ts,jsx,tsx}",
+        "./node_modules/flowbite/**/*.js"
     ],
     darkMode: 'class', // or 'class'
     theme: {
@@ -18,5 +19,5 @@ module.exports = {
         },
     },
 
-    plugins: [require('@tailwindcss/forms')],
+    plugins: [require('@tailwindcss/forms'), require('flowbite/plugin')],
 };
