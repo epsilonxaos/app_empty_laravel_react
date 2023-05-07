@@ -63,7 +63,7 @@
                             </div>
                             <ul class="py-1" role="none">
                                 <li>
-                                    <a href="#"
+                                    <a href="{{route('panel.profile.edit')}}"
                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                                         role="menuitem">Perfil</a>
                                 </li>
@@ -125,7 +125,9 @@
 
             <div class="grid py-2 grid-cols-2">
                 <div class="col-span-1">
-                    <h6 class="text-slate-800 inline-block mb-0 text-lg font-medium">{{ $title }}</h6>
+                    @if (isset($title))
+                        <h6 class="text-slate-800 inline-block mb-0 text-lg font-medium">{{ $title }}</h6>
+                    @endif
                 </div>
                 <div class="col-span-1">
                     @if ((isset($breadcrumb)) && (count($breadcrumb) > 0))

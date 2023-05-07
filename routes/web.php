@@ -40,7 +40,14 @@ Route::middleware('guest') -> prefix('/admin') -> group(function() {
 Route::middleware(['auth:admin', 'verified']) -> prefix('/admin') -> group(function() {
     Route::post('/logout', [AdminController::class, 'logout']) -> name('panel.logout');
     Route::get('/dashboard', [AdminController::class, 'dashboardAdmin']) -> name('panel.dashboard');
-
+    
+    
+    Route::prefix('/perfil') -> group(function() {
+        Route::get('/', [AdminController::class, 'editProfile']) -> name('panel.profile.edit');
+        Route::patch('/update', [AdminController::class, 'updateProfile']) -> name('panel.profile.update');
+        Route::put('/update/password', [AdminController::class, 'updateProfilePassword']) -> name('panel.profile.update.password');
+        Route::delete('/destroy', [AdminController::class, 'destroyProfile']) -> name('panel.profile.destroy');
+    });
 
     Route::prefix('/usuarios') -> group(function() {
         Route::get('/', [AdminController::class, 'index']) -> name('panel.usuarios.index');
