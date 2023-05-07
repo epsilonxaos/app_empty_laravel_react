@@ -100,33 +100,52 @@ class AdminController extends Controller
         return view('panel.profileAdmin.edit', [
             'title' => 'Perfil',
             'user' => $request->user(),
+            "profile" => true
+        ]);
+    }
+
+    
+    public function editProfileId(String $id): View
+    {
+        return view('panel.profileAdmin.edit', [
+            'title' => 'Editar Usuario',
+            'user' => Admin::find($id),
+            "profile" => false
         ]);
     }
 
     /**
      * Update the user's profile information.
      */
-    public function updateProfile(ProfileUpdateRequest $request): RedirectResponse
+    public function updateProfile(ProfileUpdateRequest $request, String $id = null,): RedirectResponse
     {
-        $request->user()->fill($request->validated());
+        $user = !$id ? $request->user() : Admin::find($id);
+        
+        $user->fill($request->validated());
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        if ($user->isDirty('email')) {
+            $user->email_verified_at = null;
         }
 
-        $request->user()->save();
+        $user->save();
 
-        return Redirect::route('panel.profile.edit')->with('status', 'profile-updated');
+        if($id) {
+            return Redirect::route('panel.usuarios.edit', ['id' => $user -> id])->with('status', 'profile-updated');
+        } else {
+            return Redirect::route('panel.profile.edit')->with('status', 'profile-updated');
+        }
     }
 
-    public function updateProfilePassword(Request $request): RedirectResponse
+    public function updateProfilePassword(Request $request, String $id = null,): RedirectResponse
     {
+        $user = !$id ? $request->user() : Admin::find($id);
+
         $validated = $request->validateWithBag('updatePassword', [
             'current_password' => ['required', 'current_password'],
             'password' => ['required', Password::defaults(), 'confirmed'],
         ]);
 
-        $request->user()->update([
+        $user->update([
             'password' => Hash::make($validated['password']),
         ]);
 
@@ -136,17 +155,19 @@ class AdminController extends Controller
     /**
      * Delete the user's account.
      */
-    public function destroyProfile(Request $request): RedirectResponse
+    public function destroyProfile(Request $request, String $id = null,): RedirectResponse
     {
         $request->validateWithBag('userDeletion', [
             'password' => ['required', 'current_password'],
         ]);
 
-        $user = $request->user();
+        $user = !$id ? $request->user() : Admin::find($id);
 
         Auth::guard('admin') -> logout();
 
         $user->delete();
+
+        if($id) return Redirect::route('panel.usuarios.index')->with('success', 'Eliminado');
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();

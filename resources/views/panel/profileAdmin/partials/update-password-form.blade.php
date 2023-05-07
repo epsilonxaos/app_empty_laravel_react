@@ -9,7 +9,11 @@
         </p>
     </header>
 
-    <form method="post" action="{{ route('panel.profile.update.password') }}" class="mt-6 space-y-6">
+    @if ($profile)
+        <form method="post" action="{{ route('panel.profile.update.password') }}" class="mt-6 space-y-6">
+    @else
+        <form method="post" action="{{ route('panel.usuarios.update.password', ['id' => $user->id]) }}" class="mt-6 space-y-6">
+    @endif
         @csrf
         @method('put')
 
