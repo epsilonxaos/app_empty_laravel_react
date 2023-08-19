@@ -9,13 +9,18 @@
         </p>
     </header>
 
-    @if ($profile)
-        <form method="post" action="{{ route('panel.profile.update.password') }}" class="mt-6 space-y-6">
-    @else
-        <form method="post" action="{{ route('panel.usuarios.update.password', ['id' => $user->id]) }}" class="mt-6 space-y-6">
-    @endif
-        @csrf
-        @method('put')
+	@can(PermissionKey::Admin['permissions']['index']['name'])
+		@if ($profile)
+			<form method="post" action="{{ route('panel.profile.update.password') }}" class="mt-6 space-y-6">
+		@else
+			<form method="post" action="{{ route('panel.usuarios.update.password', ['id' => $user->id]) }}" class="mt-6 space-y-6">
+		@endif
+			@csrf
+			@method('put')
+	@elsecan
+		<form>
+	@endcan
+
 
         <div>
             <x-input-label for="current_password" :value="__('Contraseña actual')" />
@@ -36,7 +41,9 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Guardar') }}</x-primary-button>
+			@can(PermissionKey::Admin['permissions']['update']['name'])
+            	<x-primary-button>{{ __('Guardar') }}</x-primary-button>
+			@endcan
 
             @if (session('status') === 'password-updated')
                 <p
