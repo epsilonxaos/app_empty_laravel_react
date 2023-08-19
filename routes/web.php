@@ -16,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-	return view('layouts.app');
-});
+Route::view('/', 'layouts.app')->where('path', '.*');
 
 Route::get('/dashboard', function () {
 	return view('dashboard');
