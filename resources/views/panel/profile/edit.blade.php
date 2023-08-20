@@ -7,7 +7,7 @@
                 <div class="col-span-1 h-full">
                     <div class="p-4 sm:p-8">
                         <div class="max-w-xl">
-                            @include('panel.profileAdmin.partials.update-profile-information-form')
+                            @include('panel.profile.partials.update-profile-information-form')
                         </div>
                     </div>
 
@@ -15,7 +15,7 @@
                 <div class="col-span-1 h-full">
                     <div class="p-4 sm:p-8">
                         <div class="max-w-xl">
-                            @include('panel.profileAdmin.partials.update-password-form')
+                            @include('panel.profile.partials.update-password-form')
                         </div>
                     </div>
                 </div>
@@ -24,7 +24,7 @@
 
             <div class="p-4 sm:p-8">
                 @can(PermissionKey::Admin['permissions']['destroy']['name'])
-                    @include('panel.profileAdmin.partials.delete-user-form')
+                    @include('panel.profile.partials.delete-user-form')
                 @endcan
             </div>
         </div>

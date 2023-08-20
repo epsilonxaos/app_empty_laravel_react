@@ -14,7 +14,7 @@
                     </svg>
                 </button>
                 <a href="{{ route('panel.dashboard') }}" class="flex ml-2 md:mr-24">
-                    <img width="200" src="{{ Vite::asset('resources/img/web/blackswan-ngr.svg') }}" alt="Logo">
+                    <img width="200" src="{{ asset('img/logo.png') }}" alt="Logo">
                 </a>
             </div>
             <div class="flex items-center">

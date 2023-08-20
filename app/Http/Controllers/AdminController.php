@@ -106,7 +106,7 @@ class AdminController extends Controller
 	 */
 	public function editProfile(Request $request): View
 	{
-		return view('panel.profileAdmin.edit', [
+		return view('panel.profile.edit', [
 			'title' => 'Perfil',
 			'user' => $request->user(),
 			"profile" => true
@@ -116,7 +116,7 @@ class AdminController extends Controller
 
 	public function editProfileId(String $id): View
 	{
-		return view('panel.profileAdmin.edit', [
+		return view('panel.profile.edit', [
 			'title' => 'Editar Usuario',
 			'user' => Admin::find($id),
 			'roles' => Role::all(),
