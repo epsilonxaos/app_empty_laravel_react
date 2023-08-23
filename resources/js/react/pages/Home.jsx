@@ -1,3 +1,9 @@
+import Inicio from "./home/Inicio";
+
 export default function Home() {
-    return <div>Este es el home</div>;
+    return (
+        <main>
+            <Inicio />
+        </main>
+    );
 }

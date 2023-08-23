@@ -30,7 +30,7 @@ export default function Web() {
         );
 
     return (
-        <div className="min-h-screen pt-[64px] sm:pt-[67px]">
+        <div className="min-h-screen md:pt-[67px] font-archivoExpanded">
             <Toaster richColors={true} />
             <AppContext.Provider value={{ state, dispatch }}>
                 <Header />

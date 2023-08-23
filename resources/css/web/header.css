@@ -1,0 +1,84 @@
+.menu {
+    height: 25px;
+    width: 35px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    transform: scale(0.9);
+}
+
+.menu.menu-3:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: #18191f;
+    width: 100%;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.4s 0.4s, opacity 0.4s 0.4s;
+}
+.menu.menu-3:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: #18191f;
+    width: 100%;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.4s 0.4s, opacity 0.4s 0.4s;
+}
+.menu.menu-3 span {
+    height: 3px;
+    width: 100%;
+    display: block;
+    transform: translate3d(0, 11px, 0);
+    position: relative;
+}
+.menu.menu-3 span:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: #18191f;
+    width: 100%;
+    transform: rotate(0);
+    transition: transform 0.4s;
+}
+.menu.menu-3 span:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: #18191f;
+    width: 100%;
+    transform: rotate(0);
+    transition: transform 0.4s;
+}
+.menu.menu-3.active:before {
+    transform: translate3d(100%, 0, 0);
+    opacity: 0;
+    transition: all 0.4s;
+}
+.menu.menu-3.active:after {
+    transform: translate3d(-100%, 0, 0);
+    opacity: 0;
+    transition: all 0.4s;
+}
+.menu.menu-3.active span:after {
+    transform: rotate(45deg);
+    transition: transform 0.4s 0.4s;
+}
+.menu.menu-3.active span:before {
+    transform: rotate(-45deg);
+    transition: transform 0.4s 0.4s;
+}
