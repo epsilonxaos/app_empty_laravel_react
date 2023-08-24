@@ -5,7 +5,7 @@ export default function Menu({ className = "" }) {
     return (
         <ul
             className={twMerge(
-                "flex lg:px-[15px] py-[15px] border-2 border-gris rounded-full",
+                "flex lg:px-[15px] py-[15px] border-2 border-gris rounded-full bg-white",
                 className
             )}
         >
