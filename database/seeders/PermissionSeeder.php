@@ -15,10 +15,12 @@ class PermissionSeeder extends Seeder
 	public function run(): void
 	{
 		//Truncamos la tabla
-		DB::table('model_has_roles')->delete();
-		DB::table('roles')->delete();
-		DB::table('role_has_permissions')->delete();
-		DB::table('permissions')->delete();
+		DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
+		DB::table('model_has_roles')->truncate();
+		DB::table('roles')->truncate();
+		DB::table('role_has_permissions')->truncate();
+		DB::table('permissions')->truncate();
+		DB::statement('SET FOREIGN_KEY_CHECKS = 1;');
 
 		foreach (PermissionKey::getConstants() as $key => $modulo) {
 			foreach ($modulo['permissions'] as $permiso) {
