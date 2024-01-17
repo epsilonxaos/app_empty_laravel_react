@@ -22,7 +22,7 @@ class PermissionSeeder extends Seeder
 		DB::table('permissions')->truncate();
 		DB::statement('SET FOREIGN_KEY_CHECKS = 1;');
 
-		foreach (PermissionKey::getConstants() as $key => $modulo) {
+		foreach (PermissionKey::getConstants() as $modulo) {
 			foreach ($modulo['permissions'] as $permiso) {
 				if (!DB::table('permissions')->where('name', $permiso['name'])->first()) {
 					DB::table('permissions')->insert([

@@ -30,7 +30,7 @@ class AdminSeeder extends Seeder
 		$rol = Role::create(['name' => 'Administrador', 'guard_name' => 'admin']);
 
 		$permisos = DB::table('permissions')->select('id')->get();
-		foreach ($permisos as $key => $value) {
+		foreach ($permisos as $value) {
 			$rol->givePermissionTo($value->id);
 		}
 
