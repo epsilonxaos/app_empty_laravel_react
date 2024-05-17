@@ -1,0 +1,22 @@
+{
+    "opts": {
+        "destination": "docs",
+        "readme": "README.md",
+        "recurse": true
+    },
+    "plugins": ["plugins/markdown", "better-docs/component"],
+    "source": {
+        "excludePattern": "(^|\\/|\\\\)_",
+        "include": ["resources"],
+        "includePattern": ".+\\.js(doc|x)?$"
+    },
+    "tags": {
+        "allowUnknownTags": true,
+        "dictionaries": ["jsdoc", "closure"]
+    },
+    "templates": {
+        "better-docs": {
+            "name": "Geoportal V4 (3D)"
+        }
+    }
+}
