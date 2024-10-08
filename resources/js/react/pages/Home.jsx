@@ -1,3 +1,9 @@
+import Footer from '@/components/Footer'
+
 export default function Home() {
-    return <>Inicio de proyecto</>;
+	return (
+		<div>
+			<Footer />
+		</div>
+	)
 }

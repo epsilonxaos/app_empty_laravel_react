@@ -1,16 +1,14 @@
 {
 	"env": {
 		"browser": true,
-		"es2021": true,
-		"jest/globals": true
+		"es2021": true
 	},
 	"extends": [
 		"eslint:recommended",
 		"plugin:react/recommended",
-		"plugin:jest/recommended",
-		"standard",
+		"plugin:prettier/recommended",
 		"prettier",
-		"plugin:json/recommended"
+		"plugin:json/recommended-legacy"
 	],
 	"overrides": [],
 	"parserOptions": {
@@ -21,20 +19,25 @@
 		"ecmaVersion": "latest",
 		"sourceType": "module"
 	},
-	"plugins": [
-		"react",
-		"jest"
-	],
+	"plugins": ["react", "prettier", "json"],
+	"root": true,
 	"rules": {
 		"eqeqeq": 0,
 		"no-undef": 0,
 		"one-var": 0,
 		"prefer-double": 0,
+		"prettier/prettier": [
+			"error",
+			{
+				"endOfLine": "auto"
+			}
+		],
 		"react/button-has-type": 0,
 		"react/display-name": 0,
 		"react/jsx-indent": 0,
 		"react/jsx-indent-props": 0,
 		"react/jsx-no-bind": 0,
+		"react/jsx-no-target-blank": "off",
 		"react/jsx-no-undef": 1,
 		"react/jsx-no-useless-fragment": 1,
 		"react/jsx-pascal-case": 1,

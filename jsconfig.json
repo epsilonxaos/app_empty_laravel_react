@@ -1,25 +1,24 @@
 // jsconfig.json at project root
-
 {
 	"compilerOptions": {
-		"module": "ES6",
+		"checkJs": true,
 		"jsx": "preserve",
-		"checkJs": true
+		"module": "ES2022",
+		"paths": {
+			"@/*": ["resources/js/react"]
+		}
 	},
 	"exclude": ["node_modules", "**/node_modules/*"],
 	"include": [
 		"resources/js/**/*.ts",
 		"resources/js/**/**/*.ts",
 		"resources/js/**/**/**/.ts",
-
 		"resources/js/**/*.jsx",
 		"resources/js/**/**/*.jsx",
 		"resources/js/**/**/**/*.jsx",
-
 		"resources/js/**/*.tsx",
 		"resources/js/**/**/*.tsx",
 		"resources/js/**/**/**/*.tsx",
-
 		"resources/js/**/*.js",
 		"resources/js/**/**/*.js",
 		"resources/js/**/**/**/*.js"
