@@ -1,6 +1,6 @@
-// jsconfig.json at project root
 {
 	"compilerOptions": {
+		"baseUrl": ".",
 		"checkJs": true,
 		"jsx": "preserve",
 		"module": "ES2022",
