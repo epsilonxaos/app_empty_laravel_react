@@ -8,7 +8,7 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    @include('./modules/metas')
+    @include('layouts.modules.metas')
 
     @viteReactRefresh
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/react/index.jsx'])
