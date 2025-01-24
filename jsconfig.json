@@ -5,22 +5,22 @@
 		"jsx": "preserve",
 		"module": "ES2022",
 		"paths": {
-			"@/*": ["resources/js/react"]
+			"#types/*": ["resources/js/react/types/*"],
+			"@assets/*": ["resources/js/react/assets/*"],
+			"@components/*": ["resources/js/react/components/*"],
+			"@contexts/*": ["resources/js/react/contexts/*"],
+			"@img/*": ["resources/img/*"],
+			"@modules/*": ["resources/js/react/modules/*"],
+			"@pages/*": ["resources/js/react/pages/*"],
+			"@routes/*": ["resources/js/react/routes/*"],
+			"@services/*": ["resources/js/react/services/*"],
+			"@utils/*": ["resources/js/react/utils/*"]
 		}
 	},
 	"exclude": ["node_modules", "**/node_modules/*"],
 	"include": [
-		"resources/js/**/*.ts",
-		"resources/js/**/**/*.ts",
-		"resources/js/**/**/**/.ts",
-		"resources/js/**/*.jsx",
-		"resources/js/**/**/*.jsx",
-		"resources/js/**/**/**/*.jsx",
-		"resources/js/**/*.tsx",
-		"resources/js/**/**/*.tsx",
-		"resources/js/**/**/**/*.tsx",
-		"resources/js/**/*.js",
-		"resources/js/**/**/*.js",
-		"resources/js/**/**/**/*.js"
+		"resources/js/react/**/*.{ts|jsx|js|tsx}",
+		"resources/js/react/**/**/*.{ts|jsx|js|tsx}",
+		"resources/js/react/**/**/**/.{ts|jsx|js|tsx}"
 	]
 }
